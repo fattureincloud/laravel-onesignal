@@ -9,8 +9,8 @@
 
 This is a simple OneSignal wrapper library for Laravel. It simplifies the basic
 notification flow with the defined methods. You can send a message to all users
-or you can notify a single user. Before you start installing this service, 
-please complete your OneSignal setup at https://onesignal.com and finish all 
+or you can notify a single user. Before you start installing this service,
+please complete your OneSignal setup at https://onesignal.com and finish all
 the steps that is necessary to obtain an application id and REST API Keys.
 
 
@@ -31,7 +31,7 @@ Then, update `config/app.php` by adding an entry for the service provider.
 ```php
 'providers' => [
 	// ...
-	Berkayk\OneSignal\OneSignalServiceProvider::class
+	Dic\OneSignal\OneSignalServiceProvider::class
 ];
 ```
 
@@ -40,22 +40,22 @@ Then, register class alias by adding an entry in aliases section
 ```php
 'aliases' => [
 	// ...
-	'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class
+	'OneSignal' => Dic\OneSignal\OneSignalFacade::class
 ];
 ```
 
 
-Finally, from the command line again, run 
+Finally, from the command line again, run
 
 ```
 php artisan vendor:publish --tag=config
-``` 
+```
 
-to publish the default configuration file. 
-This will publish a configuration file named `onesignal.php` which includes 
+to publish the default configuration file.
+This will publish a configuration file named `onesignal.php` which includes
 your OneSignal authorization keys.
 
-> **Note:** If the previous command does not publish the config file successfully, 
+> **Note:** If the previous command does not publish the config file successfully,
 > please check the steps involving *providers* and *aliases* in the `config/app.php` file.
 
 
@@ -72,17 +72,17 @@ You can easily send a message to all registered users with the command
 
 ```php
     OneSignal::sendNotificationToAll(
-        "Some Message", 
-        $url = null, 
-        $data = null, 
-        $buttons = null, 
+        "Some Message",
+        $url = null,
+        $data = null,
+        $buttons = null,
         $schedule = null
     );
 ```
-    
-`$url` , `$data` , `$buttons` and `$schedule` fields are exceptional. If you 
+
+`$url` , `$data` , `$buttons` and `$schedule` fields are exceptional. If you
 provide a `$url` parameter, users will be redirecting to that url.
-    
+
 
 ### Sending a Notification based on Tags/Filters
 
@@ -104,7 +104,7 @@ You can send a message based on a set of tags with the command
         $schedule = null
     );
 ```
-    
+
   ##### Example 2:
 
 ```php
@@ -135,10 +135,10 @@ After storing a user's tokens in a table, you can simply send a message with
         $schedule = null
     );
 ```
-    
-`$userId` is the user's unique id where he/she is registered for notifications. 
+
+`$userId` is the user's unique id where he/she is registered for notifications.
 Read https://documentation.onesignal.com/docs/web-push-tagging-guide for additional details.
-`$url` , `$data` , `$buttons` and `$schedule` fields are exceptional. If you provide 
+`$url` , `$data` , `$buttons` and `$schedule` fields are exceptional. If you provide
 a `$url` parameter, users will be redirecting to that url.
 
 
@@ -177,24 +177,23 @@ You can simply send a notification to a specific segment with
         $schedule = null
     );
 ```
-    
-`$url` , `$data` , `$buttons` and `$schedule` fields are exceptional. If you 
+
+`$url` , `$data` , `$buttons` and `$schedule` fields are exceptional. If you
 provide a `$url` parameter, users will be redirecting to that url.
 
 ### Sending a Custom Notification
 
-You can send a custom message with 
+You can send a custom message with
 
 ```php
     OneSignal::sendNotificationCustom($parameters);
 ```
 
 ### Sending a async Custom Notification
-You can send a async custom message with 
+You can send a async custom message with
 
 ```php
     OneSignal::async()->sendNotificationCustom($parameters);
-```    
-    
-Please refer to https://documentation.onesignal.com/reference for all customizable parameters.
+```
 
+Please refer to https://documentation.onesignal.com/reference for all customizable parameters.

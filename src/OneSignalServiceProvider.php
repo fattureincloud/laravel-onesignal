@@ -1,6 +1,6 @@
 <?php
 
-namespace Berkayk\OneSignal;
+namespace Dic\OneSignal;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -39,7 +39,7 @@ class OneSignalServiceProvider extends ServiceProvider
             return $client;
         });
 
-        $this->app->alias('onesignal', 'Berkayk\OneSignal\OneSignalClient');
+        $this->app->alias('onesignal', 'Dic\OneSignal\OneSignalClient');
     }
 
     public function provides()
