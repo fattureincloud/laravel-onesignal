@@ -1,7 +1,7 @@
 {
-  "name": "berkayk/onesignal-laravel",
+  "name": "dipendentincloud/onesignal-laravel",
   "description": "OneSignal Push Wrapper Laravel",
-  "keywords": ["onesignal", "webpush", "push", "laravel", "laravel 5"],
+  "keywords": ["onesignal", "webpush", "push", "laravel", "laravel 5", "lumen"],
   "type": "library",
   "require": {
     "php": ">=5.4.0",
@@ -28,8 +28,7 @@
     }
   },
   "license": "MIT",
-  "authors": [
-    {
+  "authors": [{
       "name": "Berkay Kaya",
       "email": "berkayk@gmail.com",
       "homepage": "http://berkaykaya.com"
@@ -40,5 +39,5 @@
     }
   ],
   "minimum-stability": "dev",
-  "prefer-stable": true 
+  "prefer-stable": true
 }
