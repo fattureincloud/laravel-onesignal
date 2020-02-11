@@ -245,8 +245,8 @@ class OneSignalClient
         );
 
         if (isset($urls)) {
-            $params['url_web'] = $urls['web'];
-            $params['url_app'] = $urls['app'];
+            $params['web_url'] = $urls['web'];
+            $params['app_url'] = $urls['app'];
         }
 
         if (isset($data)) {
