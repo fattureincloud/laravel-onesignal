@@ -232,7 +232,7 @@ class OneSignalClient
 
         $this->sendNotificationCustom($params);
     }
-    public function sendNotificationUsingTags($message, $tags, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
+    public function sendNotificationUsingTags($message, $tags, $urls = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null)
     {
         $contents = array(
             "en" => $message
@@ -244,8 +244,9 @@ class OneSignalClient
             'filters' => $tags,
         );
 
-        if (isset($url)) {
-            $params['url'] = $url;
+        if (isset($urls)) {
+            $params['url_web'] = $urls['web'];
+            $params['url_app'] = $urls['app'];
         }
 
         if (isset($data)) {
